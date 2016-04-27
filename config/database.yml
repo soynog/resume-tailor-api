@@ -1,0 +1,14 @@
+<% project_name = 'resume-tailor-api' %>
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: <%= project_name %>_development
+
+test:
+  <<: *default
+  database: <%= project_name %>_test

@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, inverse_of: :documents
   validates_presence_of :title, :user_id
   has_many :children, as: :parent,
                       class_name: 'Section',

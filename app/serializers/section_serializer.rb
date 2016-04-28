@@ -1,3 +1,4 @@
 class SectionSerializer < ActiveModel::Serializer
-  attributes :id, :content, :style, :parent_id, :parent_type
+  attributes :id, :content, :style
+  has_many :children
 end

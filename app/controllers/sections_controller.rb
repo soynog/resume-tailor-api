@@ -1,4 +1,4 @@
-class SectionsController < ApplicationController
+class SectionsController < ProtectedController
   before_action :set_section, only: [:show, :update, :destroy]
 
   # GET /sections

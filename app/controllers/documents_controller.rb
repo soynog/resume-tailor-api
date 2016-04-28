@@ -12,7 +12,8 @@ class DocumentsController < ProtectedController
   # GET /documents/1
   # Show identified document if it belongs to current user
   def show
-    render json: @document
+    # include: '**' Recursively includes all section associations.
+    render json: @document, include: '**' 
   end
 
   # POST /documents

@@ -1,6 +1,6 @@
-class DocumentsController < ApplicationController
+class DocumentsController < ProtectedController
   before_action :set_document, only: [:show, :update, :destroy]
-  before_action :authenticate
+  # skip_before_action :authenticate, only: []
 
   # GET /documents
   # Show all documents belonging to current user

@@ -1,11 +1,11 @@
 class SectionsController < ProtectedController
   before_action :set_section, only: [:show, :update, :destroy]
+  # skip_before_action :authenticate, only: []
 
   # GET /sections
   # GET /sections.json
   def index
     @sections = Section.all
-
     render json: @sections
   end
 
@@ -49,11 +49,11 @@ class SectionsController < ProtectedController
 
   private
 
-    def set_section
-      @section = Section.find(params[:id])
-    end
+  def set_section
+    @section = Section.find(params[:id])
+  end
 
-    def section_params
-      params.require(:section).permit(:content, :style, :parent_id, :parent_type)
-    end
+  def section_params
+    params.require(:section).permit(:content, :style, :parent_id, :parent_type)
+  end
 end

@@ -7,7 +7,7 @@ class DocumentsController < ProtectedController
   # Show all documents belonging to current user
   def index
     @documents = user_documents
-    render json: @documents
+    render json: @documents, include: '**'
   end
 
   # GET /documents/1

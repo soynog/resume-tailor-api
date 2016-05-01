@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428195706) do
+ActiveRecord::Schema.define(version: 20160501203306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20160428195706) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.integer  "section_id"
+    t.integer  "version_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["section_id"], name: "index_tags_on_section_id", using: :btree
+  add_index "tags", ["version_id"], name: "index_tags_on_version_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "token",           null: false
@@ -54,6 +64,18 @@ ActiveRecord::Schema.define(version: 20160428195706) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  create_table "versions", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "versions", ["document_id"], name: "index_versions_on_document_id", using: :btree
+
   add_foreign_key "documents", "users"
   add_foreign_key "examples", "users"
+  add_foreign_key "tags", "sections"
+  add_foreign_key "tags", "versions"
+  add_foreign_key "versions", "documents"
 end

@@ -4,4 +4,5 @@ class Document < ActiveRecord::Base
   has_many :children, as: :parent,
                       class_name: 'Section',
                       foreign_key: 'parent_id'
+  has_many :versions, inverse_of: :document
 end

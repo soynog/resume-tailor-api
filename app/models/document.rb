@@ -1,3 +1,4 @@
+#
 class Document < ActiveRecord::Base
   belongs_to :user, inverse_of: :documents
   validates_presence_of :title, :user_id

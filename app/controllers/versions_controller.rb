@@ -1,4 +1,4 @@
-class VersionsController < ApplicationController
+class VersionsController < ProtectedController
   before_action :set_version, only: [:show, :update, :destroy]
 
   # GET /versions

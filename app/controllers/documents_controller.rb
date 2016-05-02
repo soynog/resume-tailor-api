@@ -7,14 +7,14 @@ class DocumentsController < ProtectedController
   # Show all documents belonging to current user
   def index
     @documents = user_documents
-    render json: @documents, include: '**'
+    render json: @documents, include: ['children.**', 'versions.sections']
   end
 
   # GET /documents/1
   # Show identified document if it belongs to current user
   def show
     # include: '**' Recursively includes all section associations.
-    render json: @document, include: '**'
+    render json: @document, include: '*.*.*'
   end
 
   # POST /documents

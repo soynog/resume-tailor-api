@@ -1,5 +1,5 @@
 class VersionSerializer < ActiveModel::Serializer
   attributes :id, :name
   has_one :document
-  has_many :sections, through: :tags
+  has_many :tags
 end

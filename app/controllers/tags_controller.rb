@@ -27,17 +27,17 @@ class TagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tags/1
-  # PATCH/PUT /tags/1.json
-  def update
-    @tag = Tag.find(params[:id])
-
-    if @tag.update(tag_params)
-      head :no_content
-    else
-      render json: @tag.errors, status: :unprocessable_entity
-    end
-  end
+  # # PATCH/PUT /tags/1
+  # # PATCH/PUT /tags/1.json
+  # def update
+  #   @tag = Tag.find(params[:id])
+  #
+  #   if @tag.update(tag_params)
+  #     head :no_content
+  #   else
+  #     render json: @tag.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /tags/1
   # DELETE /tags/1.json

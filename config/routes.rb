@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :documents, except: [:new, :edit]
   resources :sections, except: [:new, :edit]
   resources :versions, except: [:new, :edit]
-  resources :tags, except: [:new, :edit]
+  resources :tags, except: [:new, :edit, :update]
 end

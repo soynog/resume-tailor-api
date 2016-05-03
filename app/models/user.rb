@@ -1,5 +1,5 @@
 #
 class User < ActiveRecord::Base
   include Authentication
-  has_many :documents, inverse_of: :user
+  has_many :documents, inverse_of: :user, dependent: :destroy
 end

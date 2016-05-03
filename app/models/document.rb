@@ -4,6 +4,7 @@ class Document < ActiveRecord::Base
   validates_presence_of :title, :user_id
   has_many :children, as: :parent,
                       class_name: 'Section',
-                      foreign_key: 'parent_id'
-  has_many :versions, inverse_of: :document
+                      foreign_key: 'parent_id',
+                      dependent: :destroy
+  has_many :versions, inverse_of: :document, dependent: :destroy
 end
